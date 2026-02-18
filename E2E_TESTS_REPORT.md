@@ -19,10 +19,10 @@ Successfully ran and fixed all frontend E2E tests. All 3 tests now pass.
 - `backend/app/api/v1/endpoints/projects.py` - Added single project fetch
 
 ### 2. **Playwright Configuration Port Mismatch** ✅
-**Problem:** Playwright config was set to `localhost:3000` but the dev server runs on `localhost:3001`. One test file also had hardcoded URLs.
+**Problem:** Playwright config was set to `localhost:3000` but the dev server runs on `localhost:3000`. One test file also had hardcoded URLs.
 
 **Solutions Applied:**
-- Updated `frontend/playwright.config.ts` - Changed `baseURL` from `http://localhost:3000` to `http://localhost:3001`
+- Updated `frontend/playwright.config.ts` - Changed `baseURL` from `http://localhost:3000` to `http://localhost:3000`
 - Updated `frontend/tests/manager-flow.spec.ts` - Replaced hardcoded URLs with relative paths using baseURL
 
 **Files Modified:**

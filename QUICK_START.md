@@ -38,11 +38,11 @@ npm run dev
 **Expected Output:**
 ```
   VITE v6.4.1  ready in 93 ms
-  ➜  Local:   http://localhost:3001/
-  ➜  Network: http://192.168.1.6:3001/
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.1.6:3000/
 ```
 
-**Open in Browser:** http://localhost:3001/
+**Open in Browser:** http://localhost:3000/
 
 ## API Endpoints
 
@@ -123,9 +123,9 @@ npx tsc --noEmit  # Should output nothing if all types are correct
 
 The application uses the following workflow:
 
-1. **Dashboard** (http://localhost:3001/) - View all workspaces and projects
-2. **Project View** (http://localhost:3001/projects/:projectId) - Kanban board for tasks by status
-3. **Manager View** (http://localhost:3001/manager) - Bulk task management
+1. **Dashboard** (http://localhost:3000/) - View all workspaces and projects
+2. **Project View** (http://localhost:3000/projects/:projectId) - Kanban board for tasks by status
+3. **Manager View** (http://localhost:3000/manager) - Bulk task management
 
 ### Creating a Workflow:
 1. Create a Workspace (Dashboard → "New Workspace")
@@ -168,8 +168,8 @@ const API_BASE_URL = 'http://127.0.0.1:8000';
 # Kill process on port 8000
 lsof -i :8000 | awk 'NR>1 {print $2}' | xargs kill -9
 
-# Kill process on port 3001
-lsof -i :3001 | awk 'NR>1 {print $2}' | xargs kill -9
+# Kill process on port 3000
+lsof -i :3000 | awk 'NR>1 {print $2}' | xargs kill -9
 ```
 
 ### Import Errors
@@ -228,13 +228,13 @@ tmcp-agent-project-managmet/
 
 ✅ **All tests passing** (34/34 backend tests)
 ✅ **Backend server running** on http://127.0.0.1:8000
-✅ **Frontend server running** on http://localhost:3001
+✅ **Frontend server running** on http://localhost:3000
 ✅ **TypeScript compiling** without errors
 ✅ **APIs fully functional**
 
 ## Next Steps
 
-1. Open http://localhost:3001 in your browser
+1. Open http://localhost:3000 in your browser
 2. Create a workspace and project
 3. Add a task and trigger the agent workflow
 4. Monitor the task logs and review generated specs

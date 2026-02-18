@@ -83,7 +83,7 @@ POST /tasks/ → Returns task with status, type, priority fields
 - Dependencies installed: `npm install` ✓
 - Build succeeds: `npm run build` ✓
 - TypeScript compilation: `npx tsc --noEmit` ✓ (no errors)
-- Development server: Running on `http://localhost:3001` ✓
+- Development server: Running on `http://localhost:3000` ✓
 
 **Build Output:**
 ```
