@@ -14,19 +14,19 @@ cd /Users/bodoi17/projects/tmcp-agent-project-managmet
 # Activate venv if not already active
 source .venv/bin/activate
 
-# Start backend on port 8000
-.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+# Start backend on port 8123
+.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8123
 ```
 
 **Expected Output:**
 ```
-INFO:     Uvicorn running on http://127.0.0.1:8000
+INFO:     Uvicorn running on http://127.0.0.1:8123
 INFO:     Application startup complete
 ```
 
 **Available at:**
-- API Docs: http://127.0.0.1:8000/docs
-- OpenAPI Schema: http://127.0.0.1:8000/openapi.json
+- API Docs: http://127.0.0.1:8123/docs
+- OpenAPI Schema: http://127.0.0.1:8123/openapi.json
 
 ### 2. Start Frontend Server (Terminal 2)
 ```bash
@@ -49,10 +49,10 @@ npm run dev
 ### Workspaces
 ```bash
 # Get all workspaces
-curl http://127.0.0.1:8000/workspaces/
+curl http://127.0.0.1:8123/workspaces/
 
 # Create workspace
-curl -X POST http://127.0.0.1:8000/workspaces/ \
+curl -X POST http://127.0.0.1:8123/workspaces/ \
   -H "Content-Type: application/json" \
   -d '{"name":"My Workspace"}'
 ```
@@ -60,10 +60,10 @@ curl -X POST http://127.0.0.1:8000/workspaces/ \
 ### Projects
 ```bash
 # Get all projects
-curl http://127.0.0.1:8000/projects/
+curl http://127.0.0.1:8123/projects/
 
 # Create project
-curl -X POST http://127.0.0.1:8000/projects/ \
+curl -X POST http://127.0.0.1:8123/projects/ \
   -H "Content-Type: application/json" \
   -d '{"name":"My Project","workspace_id":"<workspace_id>","repo_path":"/path/to/repo","tech_stack":"Python"}'
 ```
@@ -71,21 +71,21 @@ curl -X POST http://127.0.0.1:8000/projects/ \
 ### Tasks
 ```bash
 # Get all tasks
-curl http://127.0.0.1:8000/tasks/
+curl http://127.0.0.1:8123/tasks/
 
 # Create task
-curl -X POST http://127.0.0.1:8000/tasks/ \
+curl -X POST http://127.0.0.1:8123/tasks/ \
   -H "Content-Type: application/json" \
   -d '{"title":"New Task","project_id":"<project_id>","type":"Feature","raw_input":"Do something"}'
 
 # Update task status (triggers agent workflow)
-curl -X PATCH "http://127.0.0.1:8000/tasks/{task_id}/status?status=Agent_Processing"
+curl -X PATCH "http://127.0.0.1:8123/tasks/{task_id}/status?status=Agent_Processing"
 
 # Get task logs
-curl http://127.0.0.1:8000/tasks/{task_id}/logs
+curl http://127.0.0.1:8123/tasks/{task_id}/logs
 
 # Get task subtasks
-curl http://127.0.0.1:8000/tasks/{task_id}/subtasks
+curl http://127.0.0.1:8123/tasks/{task_id}/subtasks
 ```
 
 ## Testing
@@ -158,15 +158,15 @@ MOCK_LLM=false  # Set to true for mock responses
 
 Frontend API is configured in `frontend/src/services/api.ts`:
 ```typescript
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'http://127.0.0.1:8123';
 ```
 
 ## Troubleshooting
 
 ### Port Already in Use
 ```bash
-# Kill process on port 8000
-lsof -i :8000 | awk 'NR>1 {print $2}' | xargs kill -9
+# Kill process on port 8123
+lsof -i :8123 | awk 'NR>1 {print $2}' | xargs kill -9
 
 # Kill process on port 3000
 lsof -i :3000 | awk 'NR>1 {print $2}' | xargs kill -9
@@ -227,7 +227,7 @@ tmcp-agent-project-managmet/
 ## Current Status
 
 ✅ **All tests passing** (34/34 backend tests)
-✅ **Backend server running** on http://127.0.0.1:8000
+✅ **Backend server running** on http://127.0.0.1:8123
 ✅ **Frontend server running** on http://localhost:3000
 ✅ **TypeScript compiling** without errors
 ✅ **APIs fully functional**

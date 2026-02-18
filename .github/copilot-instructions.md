@@ -26,7 +26,7 @@
 python -m venv .venv
 source .venv/bin/activate
 pip install -e backend[dev]
-.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8123
 MOCK_LLM=true .venv/bin/python -m pytest backend/tests/ -v
 ```
 **Frontend**
@@ -41,7 +41,7 @@ npx playwright test --reporter=list
 ## 7. Troubleshooting & Quirks
 
 - **Modal reopens after close**: Use retry-based closeModal (see E2E tests)
-- **Port conflict**: `lsof -i :8000 -i :3000 | xargs -r kill -9`
+- **Port conflict**: `lsof -i :8123 -i :3000 | xargs -r kill -9`
 - **API 405**: Check router registration in `api.py`
 - **Pydantic/TypeScript model drift**: Update both backend models and frontend types
 - **MCP tools missing**: Install Node.js/npm, `mcp[cli]`, `langchain-mcp-adapters`
@@ -118,7 +118,7 @@ source .venv/bin/activate
 pip install -e backend[dev]
 
 # Start
-.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8123
 
 # Tests (deterministic)
 MOCK_LLM=true .venv/bin/python -m pytest backend/tests/ -v
@@ -148,7 +148,7 @@ npm run test:e2e
 | Issue | Solution |
 |-------|----------|
 | `ModuleNotFoundError: No module named 'backend'` | Run from repo root or use `backend.app.main` imports |
-| Port conflict | `lsof -i :8000 -i :3000 \| xargs -r kill -9` |
+| Port conflict | `lsof -i :8123 -i :3000 \| xargs -r kill -9` |
 | E2E tests timeout/fail | Ensure frontend dev server on 3000, playwright baseURL correct |
 | Playwright tests use port 3000 | Update [frontend/playwright.config.ts](frontend/playwright.config.ts) baseURL to 3000 |
 | API 405 Not Found | Check router registered in [backend/app/api/v1/api.py](backend/app/api/v1/api.py) |

@@ -172,7 +172,7 @@ for proj_name, proj_context in related_contexts.items():  # ✅ Unique name
 1. **Start Services**:
    ```bash
    # Terminal 1 - Backend
-   .venv/bin/uvicorn backend.app.main:app --reload --port 8000
+   .venv/bin/uvicorn backend.app.main:app --reload --port 8123
    
    # Terminal 2 - Frontend  
    cd frontend && npm run dev

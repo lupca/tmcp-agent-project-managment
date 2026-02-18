@@ -386,7 +386,7 @@ Task completed with related contexts integrated into spec
 ### 1. Create Task with Related Projects
 
 ```bash
-curl -X POST http://localhost:8000/tasks/ \
+curl -X POST http://localhost:8123/tasks/ \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Implement user auth UI",
@@ -474,7 +474,7 @@ MOCK_LLM=true .venv/bin/python -m pytest backend/tests/ -v
 ```bash
 # Terminal 1: Backend
 cd backend
-.venv/bin/uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+.venv/bin/uvicorn app.main:app --reload --host 127.0.0.1 --port 8123
 
 # Terminal 2: Frontend
 cd frontend

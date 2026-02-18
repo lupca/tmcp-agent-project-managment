@@ -59,7 +59,7 @@ backend/tests/test_persistence.py (1 test) ........................... PASSED
 - State persistence across agent runs working
 
 ### 3. **Backend Server** ✅
-**Status:** Running successfully on `http://127.0.0.1:8000`
+**Status:** Running successfully on `http://127.0.0.1:8123`
 
 **Verified Endpoints:**
 - `GET /docs` - Swagger UI accessible
@@ -146,7 +146,7 @@ frontend/
 ### Backend
 ```bash
 # From project root
-.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+.venv/bin/uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8123
 ```
 
 ### Frontend
